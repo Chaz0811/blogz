@@ -2,11 +2,18 @@
 <html>
     <head>
         <title>{{blogtitle}}</title>
+              
     </head>
-<body>
+<body style="background-color:blanchedalmond;">
+    
 
-    <div style='float: right'>
-        <a href="/">Main Blog Page</a> | <a href="newpost">Add a Blog Entry</a>
+    <div style='float: center'>
+        <table style = "width: 100%", border="3px solid black;">
+            <tr>
+                <th style = "background-color:cyan"><a href="/">Blog Posts</a></th>  
+                <th style="background-color:darkcyan"><a href="newpost">Say Something New</a></th>
+            </tr>
+        </table>
     </div>
 
     {% block content %}
