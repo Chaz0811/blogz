@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for entry in object_list %}
+<h3>
+        <a href="/blog?id={{ entry.id }}">
+        {{ entry.blogtitle }}
+        </a>
+      </h3>
+      <p> {{ entry.blogpost }}</p>
+
+{% endfor %}
+
+{% endblock %}
