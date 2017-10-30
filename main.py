@@ -26,12 +26,28 @@ def index():
 @app.route('/blog', methods=['POST', 'GET'])
 def post():
     if request.method == 'POST':
+                
+        blogtitle_error = ''
+        blogbody_error = ''
         blog_title = request.form['blogtitle']
         blog_body = request.form['blogpost']
-        new_blog = Blog(blog_title,blog_body)
-        db.session.add(new_blog)
-        db.session.commit()
-        return redirect('/blog?id=' + str(new_blog.id))
+
+        if blog_title == '':
+            blogtitle_error = "Blog Title Cannot Be Blank"
+        
+        if blog_body == '':
+            blogbody_error = "Blog Body Cannot Be Blank"
+        
+        if blogtitle_error != '' or blogbody_error != '':
+            return render_template('newpost.html', blogtitle_error=blogtitle_error, blogbody_error=blogbody_error, title=blog_title, body=blog_body)
+        else:
+            new_blog = Blog(blog_title,blog_body)
+            db.session.add(new_blog)
+            db.session.commit()  
+            return redirect('/blog?id=' + str(new_blog.id))
+            
+
+        
     
     
     if request.method =='GET':
@@ -43,7 +59,7 @@ def post():
 
 @app.route('/newpost', methods=['POST', 'GET'])
 def new_post():
-    return render_template('newpost.html', title='Build-A-Blog!')
+    return render_template('newpost.html')
 
 
 
