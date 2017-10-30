@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <style>
+        .error {
+            color: red;
+        }
+        </style> -->
+    </head>
+    <body>
+        <h2>This is where you sign up to post, utilizing a username and password</h2>
+        <form method='post' name='signup' action='signup'>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for='username'>Username</label>
+                        </td>
+                        <td>
+                            <input name='username' type='text' value={{username}}>
+                            <span class='error'>{{username_error}}</span>                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for='password' type='password'>Password</label>
+                        </td>
+                        <td>
+                            <input name='password' type='password' value ={{password}}>
+                            <span class='error'>{{password_error}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for='verify' type='password'>Verify Password</label>
+                        </td>
+                        <td>
+                            <input name='verify' type='password' value={{verify}}>
+                            <span class='error'>{{verify_error}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type='submit' value='Sign up!'>
+        </form>
+    </body>
+</html>
