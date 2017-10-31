@@ -3,9 +3,9 @@
 {% block content %}
 
     {% for blog in blogs %}    
-        <a href='/blog?id={{blog.id}}'>{{blog.title}}</a>
+        <a href='/blog?id={{blog.id}}'>{{blog.blogtitle}}</a>
         <br>
-        {{blog.body}}
+        {{blog.blogpost}}
         <br>
         Written by: <a href='/blog?user={{user.id}}'>{{user.username}}</a>
         <br>

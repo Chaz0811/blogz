@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Current users are listed here, if one jumps out at you, give it a click to pick their brain</h2>
-{% for user in blogger_list %}
+<h3>Current users are listed here, if one jumps out at you, give it a click to pick their brain</h3>
+{% for user in userlist %}
     <h3>
         <a href="/blog?user={{ user.id }}">
         {{ user.username }}

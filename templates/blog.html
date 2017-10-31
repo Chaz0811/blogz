@@ -1,15 +1,26 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
 
-{% for entry in object_list %}
-<h3>
-        <a href="/blog?id={{ entry.id }}">
-        {{ entry.blogtitle }}
-        </a>
-      </h3>
-      <p> {{ entry.blogpost }}</p>
+    
+    {% if blog_posts|length == 0 %}
+            <p>No blogs yet</p>
 
-{% endfor %}
+    {% else %}
+            {% for blog in blog_posts %}    
+                <a href='/blog?id={{blog.id}}'>{{blog.blogtitle}}</a>
+                <br>
+                {{blog.blogpost}}
+                <br>
+                {% for user in users %}
+                        {% if user.id == blog.owner_id %}
+                                Written by: <a href='/blog?user={{user.id}}'>{{user.username}}</a>
+                        {% endif %}
+                {% endfor %}
+                <br>
+                <br>
+            {% endfor %}    
+        
+    {% endif %}
 
 {% endblock %}

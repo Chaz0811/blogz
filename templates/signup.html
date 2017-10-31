@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+
 <html>
     <head>
         <!-- <style>
@@ -9,7 +12,7 @@
     </head>
     <body>
         <h2>This is where you sign up to post, utilizing a username and password</h2>
-        <form method='post' name='signup' action='signup'>
+        <form method= 'post' name='signup' action='signup'>
             <table>
                 <tbody>
                     <tr>
@@ -45,3 +48,5 @@
         </form>
     </body>
 </html>
+
+{% endblock %}
